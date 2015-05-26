@@ -17,7 +17,12 @@ namespace ToDo
 
         public static void OutputHelp()
         {
-            Output("Help is not ready yet!");
+            Output("usage: todo <command> [<args>]");
+            Output();
+            Output("The current supported commands are:");
+            Output("add|-a\t\tAdd a new todo item.");
+            Output("remove|-r\tRemove a todo item by providing the index of the item. Use --all to remove all items.");
+            Output("list|-l\t\tList all the todo items.");
         }
 
         public static void OutputNotSupported()
@@ -25,15 +30,9 @@ namespace ToDo
             OutputError("Not supported function!");
         }
 
-        public static void Output(string text)
+        public static void Output(string text = "")
         {
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.White;
-
             Console.WriteLine(text);
-            Console.WriteLine();
-
-            Console.ResetColor();
         }
     }
 }

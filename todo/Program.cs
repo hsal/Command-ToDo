@@ -6,6 +6,7 @@ namespace ToDo
     {
         static void Main(string[] args)
         {
+            //TODO: get some argument parser in here!
             using (var manager = new Manager())
             {
                 if (args.Any())
@@ -48,7 +49,5 @@ namespace ToDo
                     ToDoOutputWriter.Output("This is the command for managing your ToDo's, use argument help or -h for more info.");
             }
         }
-
-
     }
 }
