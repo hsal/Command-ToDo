@@ -72,7 +72,7 @@ namespace ToDo
             {
                 const string toDoJsonFileName = "todolist.json";
                 var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                return string.Format(Path.Combine(appDataPath, toDoJsonFileName));
+                return Path.Combine(appDataPath, toDoJsonFileName);
             }
         }
 
