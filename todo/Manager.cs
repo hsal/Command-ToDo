@@ -46,15 +46,17 @@ namespace ToDo
 
         public void ListItems()
         {
-            foreach (var toDoItem in _toDoList)
+            foreach (var group in _toDoList.GroupBy(c => c.Category))
             {
-                OutputToDoItem(toDoItem);
+                ToDoOutputWriter.Output(group.Key);
+                foreach (var item in group)
+                    OutputToDoItem(item);
             }
         }
 
         private static void OutputToDoItem(ToDoItem toDoItem)
         {
-            ToDoOutputWriter.Output(string.Format("{0}\t{1}", _toDoList.IndexOf(toDoItem) + 1, toDoItem.Title));
+            ToDoOutputWriter.Output(string.Format("\t{0}\t{1}", _toDoList.IndexOf(toDoItem) + 1, toDoItem.Title));
         }
 
         private static void Init()
@@ -75,7 +77,7 @@ namespace ToDo
                 return Path.Combine(appDataPath, toDoJsonFileName);
             }
         }
-        
+
         private static void Close()
         {
             File.WriteAllText(ToDoJsonFilePath, JsonConvert.SerializeObject(_toDoList));

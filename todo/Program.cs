@@ -20,7 +20,7 @@ namespace ToDo
                     {
                         case "add":
                         case "a":
-                            if (args.Count() > 2 && !args[1].StartsWith("-"))
+                            if (args.Count() > 1 && !args[1].StartsWith("-"))
                                 manager.AddNewItem(args[1], _category, _priority);
 
                             else

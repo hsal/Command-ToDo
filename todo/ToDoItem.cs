@@ -4,6 +4,7 @@ namespace ToDo
 {
     public class ToDoItem
     {
+        public ToDoItem() { }
         public ToDoItem(string title)
         {
             Title = title;
