@@ -13,6 +13,15 @@ namespace ToDo
             Priority = 1;
         }
 
+        public ToDoItem(string title, string category, int priority)
+        {
+            Title = title;
+            Category = category;
+            CreationDate = DateTime.Now;
+            DueDate = DateTime.Now.AddDays(7);
+            Priority = priority;
+        }
+
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime CreationDate { get; set; }

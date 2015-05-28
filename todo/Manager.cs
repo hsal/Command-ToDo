@@ -75,17 +75,7 @@ namespace ToDo
                 return Path.Combine(appDataPath, toDoJsonFileName);
             }
         }
-
-        public void AddNewItem(string title)
-        {
-            if (string.IsNullOrEmpty(title))
-            {
-                ToDoOutputWriter.Output("Task can not have an empty title!");
-            }
-            _toDoList.Add(new ToDoItem(title));
-            ToDoOutputWriter.Output(string.Format("{0}\tCreated!", title));
-        }
-
+        
         private static void Close()
         {
             File.WriteAllText(ToDoJsonFilePath, JsonConvert.SerializeObject(_toDoList));
@@ -94,6 +84,16 @@ namespace ToDo
         public void Dispose()
         {
             Close();
+        }
+
+        public void AddNewItem(string title, string category, int priority)
+        {
+            if (string.IsNullOrEmpty(title))
+            {
+                ToDoOutputWriter.Output("Task can not have an empty title!");
+            }
+            _toDoList.Add(new ToDoItem(title, category, priority));
+            ToDoOutputWriter.Output(string.Format("{0}\tCreated!", title));
         }
     }
 }
